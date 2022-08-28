@@ -139,7 +139,7 @@ public class ObraLiteraria implements IObraLiteraria{
 		System.out.println("ISBN: " + this.ISBN);
 		System.out.println("TITULO: " + this.titulo);
 		System.out.println("CATEGORIA: ");
-		this.categoriaObraLiteraria.imprimirCategoria();
+		this.categoriaObraLiteraria.imprimirInfo();
 		//LISTA AUTORES
 		System.out.println("AUTORES: ");
 		System.out.println("****************************");

@@ -69,7 +69,7 @@ class CategoriaObraLiteraria implements ICategoriaObraLiteraria{
 		BancoDeDados.getCategoriasObra().remove(this.codigo);
 	}
 	@Override
-	public void imprimirCategoria() {
+	public void imprimirInfo() {
 		System.out.println("CODIGO: " + this.codigo);
 		System.out.println("DESCRICAO: " + this.descricao);
 		System.out.println("MAXIMO DIAS EMPRESTIMO: " + this.maximoDiasEmprestimo);
