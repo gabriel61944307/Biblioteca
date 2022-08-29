@@ -156,11 +156,21 @@ public class ObraLiteraria implements IObraLiteraria{
 		System.out.println("COPIAS: ");
 		System.out.println("****************************");
 		for(CopiaObraLiteraria i : this.copias.values()) {
-			System.out.println(i.getNumeroSequencial());
+			System.out.println(i.getNumeroSequencial() + " " + i.getEstado().getNome());
 		}
 		System.out.println("****************************");
 		//LISTA RESERVAS
 	}
-	
+
+	@Override
+	public void emprestar(String numeroUfscarFuncionario, Integer numeroSequencialCopia,
+			String numeroUfscarLeitor) {
+		Funcionario funcionario = BancoDeDados.getFuncionarios().get(numeroUfscarFuncionario);
+		CopiaObraLiteraria copia = BancoDeDados.getObrasLiterarias().get(this.codigo).getCopias().get(numeroSequencialCopia);
+		Leitor leitor = BancoDeDados.getLeitores().get(numeroUfscarLeitor);
+		
+		Emprestimo emprestimo = new Emprestimo(funcionario, copia, leitor);
+		emprestimo.realizar();
+	}
 	
 }

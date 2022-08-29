@@ -8,4 +8,6 @@ public interface IObraLiteraria {
 	public void criarCopia(Integer numeroSequencial);
 	public void addAutor(IPessoa autor);
 	public void imprimirInfo();
+	public void emprestar(String numeroUfscarFuncionario, Integer numeroSequencialCopia, 
+			String numeroUfscarLeitor);
 }

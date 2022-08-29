@@ -5,4 +5,5 @@ public interface ICategoriaObraLiteraria {
 	public void alterar(String descricao, Integer maximoDiasEmprestimo, Double taxaDiariaMulta);
 	public void remover();
 	public void imprimirInfo();
+	public Integer getMaximoDiasEmprestimo();
 }

@@ -27,7 +27,7 @@ class CategoriaObraLiteraria implements ICategoriaObraLiteraria{
 		this.descricao = descricao;
 	}
 	
-	public int getMaximoDiasEmprestimo() {
+	public Integer getMaximoDiasEmprestimo() {
 		return maximoDiasEmprestimo;
 	}
 	public void setMaximoDiasEmprestimo(int maximoDiasEmprestimo) {

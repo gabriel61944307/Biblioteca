@@ -1,10 +1,14 @@
 package entidades;
 
+import java.util.ArrayList;
+
 class Leitor extends Pessoa{
 	private String numeroUfscar;
 	private String email;
 	private ICategoriaLeitor categoriaLeitor;
 	private double multa = 0;
+	private ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+	private ArrayList<Emprestimo> emprestimosAtivos = new ArrayList<Emprestimo>();
 	
 	public Leitor() {}
 	public Leitor(String nome, String telefone, String dataNasc, Endereco endereco, String numeroUfscar, String email,
@@ -97,5 +101,17 @@ class Leitor extends Pessoa{
 	public Integer getCodigo() {
 		// doNothing.
 		return null;
+	}
+	public ArrayList<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+	public void setEmprestimos(ArrayList<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
+	public ArrayList<Emprestimo> getEmprestimosAtivos() {
+		return emprestimosAtivos;
+	}
+	public void setEmprestimosAtivos(ArrayList<Emprestimo> emprestimosAtivos) {
+		this.emprestimosAtivos = emprestimosAtivos;
 	}
 }

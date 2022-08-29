@@ -5,4 +5,5 @@ public interface ICategoriaLeitor {
 	public void alterar(Integer maximoDiasEmprestimo, String descricao);
 	public void remover();
 	public void imprimirInfo();
+	public Integer getMaximoDiasEmprestimo();
 }
