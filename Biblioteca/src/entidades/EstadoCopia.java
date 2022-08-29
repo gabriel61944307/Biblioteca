@@ -1,6 +1,6 @@
 package entidades;
 
-public abstract class EstadoCopia {
+abstract class EstadoCopia {
 	private String nome = "";
 	
 	public abstract void emprestarObra(CopiaObraLiteraria copiaObra);
