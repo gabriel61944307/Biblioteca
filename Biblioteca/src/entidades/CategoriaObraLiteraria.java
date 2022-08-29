@@ -34,7 +34,7 @@ class CategoriaObraLiteraria implements ICategoriaObraLiteraria{
 		this.maximoDiasEmprestimo = maximoDiasEmprestimo;
 	}
 	
-	public double getTaxaDiariaMulta() {
+	public Double getTaxaDiariaMulta() {
 		return taxaDiariaMulta;
 	}
 	public void setTaxaDiariaMulta(double taxaDiariaMulta) {

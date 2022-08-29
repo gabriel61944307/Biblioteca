@@ -10,4 +10,5 @@ public interface IObraLiteraria {
 	public void imprimirInfo();
 	public void emprestar(String numeroUfscarFuncionario, Integer numeroSequencialCopia, 
 			String numeroUfscarLeitor);
+	public void devolver(Integer numeroSequencialCopia, String numeroUfscarLeitor);
 }

@@ -172,5 +172,14 @@ public class ObraLiteraria implements IObraLiteraria{
 		Emprestimo emprestimo = new Emprestimo(funcionario, copia, leitor);
 		emprestimo.realizar();
 	}
+
+	@Override
+	public void devolver(Integer numeroSequencialCopia, String numeroUfscarLeitor) {
+		CopiaObraLiteraria copia = BancoDeDados.getObrasLiterarias().get(this.codigo).getCopias().get(numeroSequencialCopia);
+		Leitor leitor = BancoDeDados.getLeitores().get(numeroUfscarLeitor);
+		
+		Devolucao devolucao = new Devolucao(copia, leitor);
+		devolucao.realizar();
+	}
 	
 }

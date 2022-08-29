@@ -12,9 +12,9 @@ public class ControladorPessoas {
 		FabricaObraLiteraria fabricaObraLiteraria = new FabricaObraLiteraria();
 		Endereco endereco = new Endereco("1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil");
 		
-		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE OBRA LITERARIA, E ADICAO DE COPIA E AUTOR
+		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE OBRA LITERARIA, ADICAO DE COPIA E AUTOR, EMPRESTIMO E DEVOLUÇÃO
 		
-		ICategoriaObraLiteraria categoriaObra1 = fabricaCategoriaObra.criar(1, "terror", 5, 5.5);
+		/*ICategoriaObraLiteraria categoriaObra1 = fabricaCategoriaObra.criar(1, "terror", 5, 5.5);
 		Editora editora = new Editora("Editora1", "11935535", "cnpj", "editora@gmail.com");
 		IPessoa autor1 = fabricaAutor.criar("gabriel", "111", "10/10/2010", endereco, 0);
 		IPessoa autor2 = fabricaAutor.criar("lucas", "111", "10/10/2010", endereco, 1);
@@ -53,6 +53,13 @@ public class ControladorPessoas {
 		
 		BancoDeDados.imprimeObras();
 		
+		obra1.devolver(324, "54321");
+		obra1.devolver(15435, "54321");
+		
+		BancoDeDados.imprimeObras();
+		
+		leitor1.imprimirInfo();
+		*/
 		
 		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE CATEGORIA DE OBRA
 		/*

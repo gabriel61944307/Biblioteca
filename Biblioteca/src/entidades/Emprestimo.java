@@ -1,7 +1,6 @@
 package entidades;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 class Emprestimo{
 	private LocalDate dataEmprestimo;
@@ -51,6 +50,8 @@ class Emprestimo{
 	}
 	
 	public void realizar() {
+		//O empréstimo só pode ser feito se o requisitante estiver inscrito em pelo menos uma disciplina
+		//e tiver participado pelo menos de um grupo acadêmico no passado, mesmo que o grupo já esteja desativado.
 		this.copiaEmprestada.getEstado().emprestarObra(this.copiaEmprestada);
 		this.leitor.getEmprestimos().add(this);
 		this.leitor.getEmprestimosAtivos().add(this);

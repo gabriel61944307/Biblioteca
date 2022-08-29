@@ -96,6 +96,14 @@ class Leitor extends Pessoa{
 		System.out.println("CATEGORIA LEITOR: ");
 		this.categoriaLeitor.imprimirInfo();
 		System.out.println("MULTA: " + this.multa);
+		System.out.println("EMPRESTIMOS DESSE LEITOR: ");
+		for(int i = 0; i < this.emprestimos.size(); i++) {
+			System.out.println(this.emprestimos.get(i).getCopiaEmprestada().getNumeroSequencial());
+		}
+		System.out.println("EMPRESTIMOS ATIVOS DESSE LEITOR: ");
+		for(int i = 0; i < this.emprestimosAtivos.size(); i++) {
+			System.out.println(this.emprestimosAtivos.get(i).getCopiaEmprestada().getNumeroSequencial());
+		}
 	}
 	@Override
 	public Integer getCodigo() {

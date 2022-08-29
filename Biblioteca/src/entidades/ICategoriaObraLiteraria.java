@@ -6,4 +6,5 @@ public interface ICategoriaObraLiteraria {
 	public void remover();
 	public void imprimirInfo();
 	public Integer getMaximoDiasEmprestimo();
+	public Double getTaxaDiariaMulta();
 }
