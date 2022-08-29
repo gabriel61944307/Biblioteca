@@ -12,9 +12,9 @@ public class ControladorPessoas {
 		FabricaObraLiteraria fabricaObraLiteraria = new FabricaObraLiteraria();
 		Endereco endereco = new Endereco("1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil");
 		
-		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE OBRA LITERARIA, ADICAO DE COPIA E AUTOR, EMPRESTIMO E DEVOLUÇÃO
+		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE OBRA LITERARIA, ADICAO DE COPIA E AUTOR, EMPRESTIMO E DEVOLUï¿½ï¿½O
 		// E TESTE DE RESERVA
-		/*
+		
 		ICategoriaObraLiteraria categoriaObra1 = fabricaCategoriaObra.criar(1, "terror", 5, 5.5);
 		Editora editora = new Editora("Editora1", "11935535", "cnpj", "editora@gmail.com");
 		IPessoa autor1 = fabricaAutor.criar("gabriel", "111", "10/10/2010", endereco, 0);
@@ -50,7 +50,7 @@ public class ControladorPessoas {
 		obra1.criarCopia(324);
 		obra1.reservar("30/08/2022", "12345", "54321");
 		BancoDeDados.imprimeObras();
-		*/
+		
 		/*
 		
 		obra1.criarCopia(15435);
@@ -129,7 +129,7 @@ public class ControladorPessoas {
 		*/
 		
 		
-		// TESTE DE CADASTRO, ALTERAÇÃO E REMOÇÃO DE FUNCIONARIO
+		// TESTE DE CADASTRO, ALTERAï¿½ï¿½O E REMOï¿½ï¿½O DE FUNCIONARIO
 		/*
 		IPessoa funcionario1 = fabricaFuncionario.criar("gabriel", "111", "10/10/2010", endereco, "12345");
 		IPessoa funcionario2 = fabricaFuncionario.criar("lucas", "222", "11/11/2011", endereco, "54321");

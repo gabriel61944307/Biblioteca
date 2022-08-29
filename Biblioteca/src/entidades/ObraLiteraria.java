@@ -14,12 +14,12 @@ public class ObraLiteraria implements IObraLiteraria{
 	private String palavrasChave;
 	private LocalDate dataPublicacao;
 	private Editora editora;
-	private Integer numeroPáginas;
+	private Integer numeroPaginas;
 	private HashMap<Integer, CopiaObraLiteraria> copias = new HashMap<Integer, CopiaObraLiteraria>();
 	private ArrayList<Reserva> reservas = new ArrayList<>();
 	
 	public ObraLiteraria(Integer codigo, Integer ISBN, String titulo, ICategoriaObraLiteraria categoriaObraLiteraria,
-			String palavrasChave, String dataPublicacao, Editora editora, Integer numeroPáginas) {
+			String palavrasChave, String dataPublicacao, Editora editora, Integer numeroPaginas) {
 		this.codigo = codigo;
 		this.ISBN = ISBN;
 		this.titulo = titulo;
@@ -27,7 +27,7 @@ public class ObraLiteraria implements IObraLiteraria{
 		this.palavrasChave = palavrasChave;
 		this.dataPublicacao = LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		this.editora = editora;
-		this.numeroPáginas = numeroPáginas;
+		this.numeroPaginas = numeroPaginas;
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class ObraLiteraria implements IObraLiteraria{
 	}
 	@Override
 	public void alterar(Integer ISBN, String titulo, ICategoriaObraLiteraria categoriaObraLiteraria,
-			String palavrasChave, String dataPublicacao, Editora editora, Integer numeroPáginas) {
+			String palavrasChave, String dataPublicacao, Editora editora, Integer numeroPaginas) {
 		System.out.println("Alterando obra");
 		ObraLiteraria i = BancoDeDados.getObrasLiterarias().get(this.codigo);
 		if(i != null) {
@@ -59,8 +59,8 @@ public class ObraLiteraria implements IObraLiteraria{
 			if(editora != null) {
 				i.setEditora(editora);
 			}
-			if(numeroPáginas != null) {
-				i.setNumeroPáginas(numeroPáginas);
+			if(numeroPaginas != null) {
+				i.setNumeroPaginas(numeroPaginas);
 			}
 		}
 	}
@@ -117,11 +117,11 @@ public class ObraLiteraria implements IObraLiteraria{
 	public void setEditora(Editora editora) {
 		this.editora = editora;
 	}
-	public int getNumeroPáginas() {
-		return numeroPáginas;
+	public int getNumeroPaginas() {
+		return numeroPaginas;
 	}
-	public void setNumeroPáginas(int numeroPáginas) {
-		this.numeroPáginas = numeroPáginas;
+	public void setNumeroPaginas(int numeroPaginas) {
+		this.numeroPaginas = numeroPaginas;
 	}
 	public HashMap<Integer, CopiaObraLiteraria> getCopias() {
 		return copias;
@@ -158,7 +158,7 @@ public class ObraLiteraria implements IObraLiteraria{
 		System.out.println("PALAVRAS CHAVE: " + this.palavrasChave);
 		System.out.println("DATA PUBLICACAO: " + this.dataPublicacao);
 		System.out.println("EDITORA: " + this.editora.getNome());
-		System.out.println("NUMERO DE PAGINAS: " + this.numeroPáginas);
+		System.out.println("NUMERO DE PAGINAS: " + this.numeroPaginas);
 		//LISTA COPIAS
 		System.out.println("COPIAS: ");
 		System.out.println("****************************");
