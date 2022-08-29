@@ -10,6 +10,7 @@ public final class BancoDeDados {
 	private static HashMap<Integer, CategoriaObraLiteraria> categoriasObra = new HashMap<Integer, CategoriaObraLiteraria>();
 	private static HashMap<Integer, ObraLiteraria> obrasLiterarias = new HashMap<Integer, ObraLiteraria>();
 	
+	
 	public static HashMap<Integer, Autor> getAutores() {
 		return autores;
 	}

@@ -2,6 +2,7 @@ package entidades;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ObraLiteraria implements IObraLiteraria{
@@ -15,7 +16,7 @@ public class ObraLiteraria implements IObraLiteraria{
 	private Editora editora;
 	private Integer numeroPáginas;
 	private HashMap<Integer, CopiaObraLiteraria> copias = new HashMap<Integer, CopiaObraLiteraria>();
-	//private HashMap<Integer, Reserva> reservas;
+	private ArrayList<Reserva> reservas = new ArrayList<>();
 	
 	public ObraLiteraria(Integer codigo, Integer ISBN, String titulo, ICategoriaObraLiteraria categoriaObraLiteraria,
 			String palavrasChave, String dataPublicacao, Editora editora, Integer numeroPáginas) {
@@ -132,6 +133,12 @@ public class ObraLiteraria implements IObraLiteraria{
 	public void criarCopia(Integer numeroSequencial) {
 		addCopia(new CopiaObraLiteraria(numeroSequencial, this));
 	}
+	public ArrayList<Reserva> getReservas() {
+		return reservas;
+	}
+	public void addReserva(Reserva reserva) {
+		this.reservas.add(reserva);
+	}
 
 	@Override
 	public void imprimirInfo() {
@@ -180,6 +187,15 @@ public class ObraLiteraria implements IObraLiteraria{
 		
 		Devolucao devolucao = new Devolucao(copia, leitor);
 		devolucao.realizar();
+	}
+
+	@Override
+	public void reservar(String dataRetirada, String numeroUfscarFuncionario, String numeroUfscarLeitor) {
+		Funcionario funcionario = BancoDeDados.getFuncionarios().get(numeroUfscarFuncionario);
+		Leitor leitor = BancoDeDados.getLeitores().get(numeroUfscarLeitor);
+		
+		Reserva reserva = new Reserva(dataRetirada, funcionario, leitor, this);
+		reserva.realizar();
 	}
 	
 }

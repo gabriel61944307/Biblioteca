@@ -13,13 +13,15 @@ public class ControladorPessoas {
 		Endereco endereco = new Endereco("1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil");
 		
 		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE OBRA LITERARIA, ADICAO DE COPIA E AUTOR, EMPRESTIMO E DEVOLUÇÃO
-		
-		/*ICategoriaObraLiteraria categoriaObra1 = fabricaCategoriaObra.criar(1, "terror", 5, 5.5);
+		// E TESTE DE RESERVA
+		/*
+		ICategoriaObraLiteraria categoriaObra1 = fabricaCategoriaObra.criar(1, "terror", 5, 5.5);
 		Editora editora = new Editora("Editora1", "11935535", "cnpj", "editora@gmail.com");
 		IPessoa autor1 = fabricaAutor.criar("gabriel", "111", "10/10/2010", endereco, 0);
 		IPessoa autor2 = fabricaAutor.criar("lucas", "111", "10/10/2010", endereco, 1);
 		IPessoa funcionario1 = fabricaFuncionario.criar("gabriel", "111", "10/10/2010", endereco, "12345");
 		ICategoriaLeitor tipo1 = fabricaCatLeitor.criar(1, 10, "Leitor medio");
+		
 		
 		autor1.cadastrar();
 		autor2.cadastrar();
@@ -34,14 +36,23 @@ public class ControladorPessoas {
 		
 		obra1.cadastrar();
 		
+		obra1.reservar("30/08/2022", "12345", "54321");
+		
 		BancoDeDados.imprimeObras();
 		
 		obra1.alterar(null, "branca de neve", null, null, null, null, null);
 		
-		BancoDeDados.imprimeObras();
+		
 		
 		obra1.criarCopia(32654);
+		BancoDeDados.imprimeObras();
+		obra1.emprestar("12345", 32654, "54321");
 		obra1.criarCopia(324);
+		obra1.reservar("30/08/2022", "12345", "54321");
+		BancoDeDados.imprimeObras();
+		*/
+		/*
+		
 		obra1.criarCopia(15435);
 		obra1.addAutor(autor1);
 		obra1.addAutor(autor2);
