@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-class ObraLiteraria implements IObraLiteraria{
+class ObraLiteraria implements IObraLiteraria {
 	private Integer codigo;
 	private Integer ISBN;
 	private String titulo;
