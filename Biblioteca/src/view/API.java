@@ -7,13 +7,13 @@ import controladores.ControladorPessoas;
 
 public class API {
     public static void main(String[] args) {
-        //ControladorCategoriaLeitor.criarCategoria();
+        ControladorCategoriaLeitor.criarCategoria();
 
-        //ControladorCategoriaObraLiteraria.criarCategoria();
+        ControladorPessoas.criarAutor();
+        ControladorPessoas.criarFuncionario();
+        ControladorPessoas.criarLeitor();
         
-        //ControladorPessoas.criarAutor();
-        //ControladorPessoas.criarFuncionario();
-        //ControladorPessoas.criarLeitor();
+        ControladorCategoriaObraLiteraria.criarCategoria();
         
         ControladorObra.criarObra();
 
