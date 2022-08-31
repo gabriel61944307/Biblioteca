@@ -1,6 +1,10 @@
 package controladores;
 
-import entidades.*;
+import entidades.BancoDeDados;
+import entidades.FabricaAutor;
+import entidades.FabricaFuncionario;
+import entidades.FabricaLeitor;
+import entidades.IPessoa;
 
 public class ControladorPessoas {
 

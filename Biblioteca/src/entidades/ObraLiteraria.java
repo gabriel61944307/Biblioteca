@@ -19,7 +19,8 @@ class ObraLiteraria implements IObraLiteraria {
 	private ArrayList<Reserva> reservas = new ArrayList<>();
 	
 	public ObraLiteraria(Integer codigo, Integer ISBN, String titulo, ICategoriaObraLiteraria categoriaObraLiteraria,
-			String palavrasChave, String dataPublicacao, Editora editora, Integer numeroPaginas) {
+			String palavrasChave, String dataPublicacao, String nome, String telefone, String cnpj, String email, Integer numeroPaginas) {
+		Editora editora = new Editora(nome, telefone, cnpj, email);
 		this.codigo = codigo;
 		this.ISBN = ISBN;
 		this.titulo = titulo;

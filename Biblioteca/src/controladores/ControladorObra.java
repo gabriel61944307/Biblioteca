@@ -1,20 +1,18 @@
 package controladores;
 
 import entidades.BancoDeDados;
-import entidades.Editora;
 import entidades.FabricaObraLiteraria;
 import entidades.IObraLiteraria;
 
 public class ControladorObra {
     public static void cadastrarObra() {
 		FabricaObraLiteraria fabricaObraLiteraria = new FabricaObraLiteraria();
-		Editora editora = new Editora("Editora1", "11935535", "cnpj", "editora@gmail.com");
 		
 		IObraLiteraria obra1 = fabricaObraLiteraria.criar(123, 321, "a bela e a fera", BancoDeDados.getCategoriasObra().get(2), "conto de fadas",
-				"11/09/1991", editora, 500);
+				"11/09/1991", "Editora1", "11935535", "cnpj", "editora@gmail.com", 500);
 		
 		IObraLiteraria obra2 = fabricaObraLiteraria.criar(0, 456, "alice no pais das maravilhas", BancoDeDados.getCategoriasObra().get(2), "conto de fadas",
-				"11/09/1990", editora, 200);
+				"11/09/1990", "Editora1", "11935535", "cnpj", "editora@gmail.com", 200);
 		
 		obra1.cadastrar();
 		obra2.cadastrar();
