@@ -10,7 +10,9 @@ abstract class Pessoa implements IPessoa{
 	private Endereco endereco;
 	
 	public Pessoa() {}
-	public Pessoa(String nome, String telefone, String dataNasc, Endereco endereco) {
+	public Pessoa(String nome, String telefone, String dataNasc, String cep, String logradouro, String numero, String complemento, String bairro, String nomeCidade, 
+	String nomeEstado, String siglaEstado, String nomePais) {
+		Endereco endereco = new Endereco(cep, logradouro, numero, complemento, bairro, nomeCidade, nomeEstado, siglaEstado, nomePais);
 		this.nome = nome;
 		this.telefone = telefone;
 		this.dataNasc = LocalDate.parse(dataNasc, DateTimeFormatter.ofPattern("dd/MM/yyyy"));

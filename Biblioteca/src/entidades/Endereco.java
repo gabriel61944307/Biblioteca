@@ -1,6 +1,6 @@
 package entidades;
 
-public class Endereco {
+class Endereco {
 	private String cep;
 	private String logradouro;
 	private String numero;

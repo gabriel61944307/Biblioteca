@@ -4,8 +4,9 @@ class Funcionario extends Pessoa{
 	private String numeroUfscar;
 	
 	public Funcionario () {}
-	public Funcionario (String nome, String telefone, String dataNasc, Endereco endereco, String numeroUfscar) {
-		super(nome, telefone, dataNasc, endereco);
+	public Funcionario (String nome, String telefone, String dataNasc, String cep, String logradouro, String numero, String complemento, String bairro, String nomeCidade, 
+	String nomeEstado, String siglaEstado, String nomePais, String numeroUfscar) {
+		super(nome, telefone, dataNasc, cep, logradouro, numero, complemento, bairro, nomeCidade, nomeEstado, siglaEstado, nomePais);
 		this.numeroUfscar = numeroUfscar;
 	}
 	

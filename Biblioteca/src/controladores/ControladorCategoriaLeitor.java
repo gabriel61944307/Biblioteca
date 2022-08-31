@@ -5,24 +5,45 @@ import entidades.FabricaCategoriaLeitor;
 import entidades.ICategoriaLeitor;
 
 public class ControladorCategoriaLeitor {
-    public static void criarCategoria() {
+    public static void cadastrarCategoria() {
         
 		FabricaCategoriaLeitor fabricaCatLeitor = new FabricaCategoriaLeitor();
 
         //TESTE DE CATEGORIA LEITOR
 		
-		ICategoriaLeitor tipo1 = fabricaCatLeitor.criar(1, 10, "Leitor medio");
-		ICategoriaLeitor tipo2 = fabricaCatLeitor.criar(2, 15, "Leitor assiduo");
+		ICategoriaLeitor categoria1 = fabricaCatLeitor.criar(1, 10, "Leitor medio");
+		ICategoriaLeitor categoria2 = fabricaCatLeitor.criar(2, 15, "Leitor assiduo");
 		
-		tipo1.cadastrar();
-		tipo2.cadastrar();
-		BancoDeDados.imprimeCategoriasLeitor();
+		categoria1.cadastrar();
+		categoria2.cadastrar();
+
+		imprimirInfo();
 		
-		tipo1.remover();
-		BancoDeDados.imprimeCategoriasLeitor();
+    }
+
+    public static void alterarCategoria(int codigo) {
+
+		ICategoriaLeitor categoria = BancoDeDados.getCategoriasLeitor().get(codigo);
+
+		categoria.alterar(20, null);
+
+		imprimirInfo();
 		
-		tipo2.alterar(20, null);
-		BancoDeDados.imprimeCategoriasLeitor();
+    }
+
+    public static void removerCategoria(int codigo) {
+
+		ICategoriaLeitor categoria = BancoDeDados.getCategoriasLeitor().get(codigo);
+
+		categoria.remover();
+
+		imprimirInfo();
+		
+    }
+
+    public static void imprimirInfo() {
+
+		//BancoDeDados.imprimeCategoriasLeitor();
 		
     }
 }

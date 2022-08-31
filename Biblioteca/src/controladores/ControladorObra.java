@@ -6,51 +6,80 @@ import entidades.FabricaObraLiteraria;
 import entidades.IObraLiteraria;
 
 public class ControladorObra {
-    public static void criarObra() {
+    public static void cadastrarObra() {
 		FabricaObraLiteraria fabricaObraLiteraria = new FabricaObraLiteraria();
 		Editora editora = new Editora("Editora1", "11935535", "cnpj", "editora@gmail.com");
-		
-		// TESTE DE CADASTRO ALTERACAO E REMOCAO DE OBRA LITERARIA, ADICAO DE COPIA E AUTOR, EMPRESTIMO E DEVOLU��O
-		// E TESTE DE RESERVA
-		
 		
 		IObraLiteraria obra1 = fabricaObraLiteraria.criar(123, 321, "a bela e a fera", BancoDeDados.getCategoriasObra().get(2), "conto de fadas",
 				"11/09/1991", editora, 500);
 		
+		IObraLiteraria obra2 = fabricaObraLiteraria.criar(0, 456, "alice no pais das maravilhas", BancoDeDados.getCategoriasObra().get(2), "conto de fadas",
+				"11/09/1990", editora, 200);
+		
 		obra1.cadastrar();
+		obra2.cadastrar();
 		
-		obra1.reservar("30/08/2022", "12345", "54321");
+    }
+
+    public static void alterarObra(int codigo) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 		
+		obra.alterar(null, "branca de neve", null, null, null, null, null);
+		
+    }
+
+    public static void removerObra(int codigo) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
+		
+		obra.remover();
+		
+    }
+
+    public static void criarCopia(int codigoObra, int codigoCopia) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigoObra);
+
+		obra.criarCopia(codigoCopia);
+		
+    }
+
+    public static void addAutor(int codigoObra, int codigoAutor) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigoObra);
+
+		obra.addAutor(BancoDeDados.getAutores().get(codigoAutor));
+		
+    }
+
+    public static void imprimirInfo() {
+
 		BancoDeDados.imprimeObras();
 		
-		obra1.alterar(null, "branca de neve", null, null, null, null, null);
+    }
+
+    public static void emprestar(int codigo, String numeroUfscarFuncionario, Integer numeroSequencialCopia, String numeroUfscarLeitor) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 		
+		obra.emprestar(numeroUfscarFuncionario, numeroSequencialCopia, numeroUfscarLeitor);
 		
+    }
+
+    public static void devolver(int codigo, Integer numeroSequencialCopia, String numeroUfscarLeitor) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 		
-		obra1.criarCopia(32654);
-		BancoDeDados.imprimeObras();
-		obra1.emprestar("12345", 32654, "54321");
-		obra1.criarCopia(324);
-		obra1.reservar("30/08/2022", "12345", "54321");
-		BancoDeDados.imprimeObras();
+		obra.devolver(numeroSequencialCopia, numeroUfscarLeitor);
 		
+    }
+
+    public static void reservar(int codigo, String dataRetirada, String numeroUfscarFuncionario, String numeroUfscarLeitor) {
+
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 		
-		
-		obra1.criarCopia(15435);
-		obra1.addAutor(BancoDeDados.getAutores().get(0));
-		obra1.addAutor(BancoDeDados.getAutores().get(5));
-		
-		BancoDeDados.imprimeObras();
-		
-		obra1.emprestar("12345", 324, "54321");
-		obra1.emprestar("12345", 15435, "54321");
-		
-		BancoDeDados.imprimeObras();
-		
-		obra1.devolver(324, "54321");
-		obra1.devolver(15435, "54321");
-		
-		BancoDeDados.imprimeObras();
+		obra.reservar(dataRetirada, numeroUfscarFuncionario, numeroUfscarLeitor);
 		
     }
   

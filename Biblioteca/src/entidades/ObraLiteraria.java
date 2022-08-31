@@ -142,7 +142,7 @@ class ObraLiteraria implements IObraLiteraria {
 
 	@Override
 	public void imprimirInfo() {
-		System.out.println("CODIGO: " + this.codigo);
+		System.out.println("***************** OBRA " + this.codigo + " *****************");
 		System.out.println("ISBN: " + this.ISBN);
 		System.out.println("TITULO: " + this.titulo);
 		System.out.println("CATEGORIA: ");

@@ -5,7 +5,7 @@ import entidades.FabricaCategoriaObra;
 import entidades.ICategoriaObraLiteraria;
 
 public class ControladorCategoriaObraLiteraria {
-    public static void criarCategoria() {
+    public static void cadastrarCategoria() {
         
 		FabricaCategoriaObra fabricaCategoriaObra = new FabricaCategoriaObra();
 		
@@ -17,15 +17,33 @@ public class ControladorCategoriaObraLiteraria {
 		categoriaObra1.cadastrar();
 		categoriaObra2.cadastrar();
 		
-		BancoDeDados.imprimeCategoriasObra();
+		imprimirInfo();
 		
-		categoriaObra1.remover();
-	
-		BancoDeDados.imprimeCategoriasObra();	
+    }
+
+    public static void alterarCategoria(int codigo) {
+
+		ICategoriaObraLiteraria categoria = BancoDeDados.getCategoriasObra().get(codigo);
 		
-		categoriaObra2.alterar("japones", null, 1.5);
+		categoria.alterar("japones", null, 1.5);
+
+		imprimirInfo();
 		
-		BancoDeDados.imprimeCategoriasObra();
+    }
+
+    public static void removerCategoria(int codigo) {
+
+		ICategoriaObraLiteraria categoria = BancoDeDados.getCategoriasObra().get(codigo);
+		
+		categoria.remover();
+
+		imprimirInfo();
+		
+    }
+
+    public static void imprimirInfo() {
+
+		//BancoDeDados.imprimeCategoriasObra();
 		
     }
 }

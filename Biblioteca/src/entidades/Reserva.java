@@ -61,8 +61,8 @@ class Reserva {
 	
 	
 	public void realizar() {
-		//Uma reserva de obra só pode ser feita se o requisitante estiver inscrito em pelo menos uma disciplina 
-		//e participar de um grupo acadêmico da universidade
+		//Uma reserva de obra sï¿½ pode ser feita se o requisitante estiver inscrito em pelo menos uma disciplina 
+		//e participar de um grupo acadï¿½mico da universidade
 		int reservaMesmoPeriodo = 0;
 		for(Reserva i : obra.getReservas()) {
 			if(!(this.dataPrevistaDevolucao.isBefore(i.getDataRetirada()) 

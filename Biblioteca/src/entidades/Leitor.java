@@ -11,9 +11,10 @@ class Leitor extends Pessoa{
 	private ArrayList<Emprestimo> emprestimosAtivos = new ArrayList<Emprestimo>();
 	
 	public Leitor() {}
-	public Leitor(String nome, String telefone, String dataNasc, Endereco endereco, String numeroUfscar, String email,
+	public Leitor(String nome, String telefone, String dataNasc, String cep, String logradouro, String numero, String complemento, String bairro, String nomeCidade, 
+	String nomeEstado, String siglaEstado, String nomePais, String numeroUfscar, String email,
 			ICategoriaLeitor categoriaLeitor) {
-		super(nome, telefone, dataNasc, endereco);
+		super(nome, telefone, dataNasc, cep, logradouro, numero, complemento, bairro, nomeCidade, nomeEstado, siglaEstado, nomePais);
 		this.numeroUfscar = numeroUfscar;
 		this.email = email;
 		this.categoriaLeitor = categoriaLeitor;
