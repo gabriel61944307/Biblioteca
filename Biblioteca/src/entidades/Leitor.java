@@ -123,4 +123,11 @@ class Leitor extends Pessoa{
 	public void setEmprestimosAtivos(ArrayList<Emprestimo> emprestimosAtivos) {
 		this.emprestimosAtivos = emprestimosAtivos;
 	}
+	public void notificar(ObraLiteraria obraLiteraria) {
+		System.out.println("---------------------------");
+		System.out.println("Email para: " + this.email);
+		System.out.println("O livro " + obraLiteraria.getTitulo() + " se encontra disponível para emprestimo.");
+		System.out.println("Cordialmente, sistema biblioteca UFSCar.");
+		System.out.println("---------------------------");
+	}
 }

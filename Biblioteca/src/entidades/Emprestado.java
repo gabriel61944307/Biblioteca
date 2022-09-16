@@ -12,6 +12,7 @@ class Emprestado extends EstadoCopia{
 	@Override
 	public void disponibilizarObra(CopiaObraLiteraria copiaObra) {
 		copiaObra.setEstado(new Disponivel());
+		copiaObra.getObra().notificarInteressados();
 	}
 
 	@Override

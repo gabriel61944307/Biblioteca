@@ -56,6 +56,28 @@ public class API {
         ControladorObra.devolver(123, 324, "54321");
         ControladorObra.devolver(123, 15435, "54321");
         ControladorObra.imprimirInfo();
+        
+        System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
+        ControladorPessoas.cadastrarLeitor();
+        //cadastrando leitor 54321 como interessado na obra 123
+        ControladorObra.cadastrarInteressado(123, "54321");
+        //cadastrando leitor 12345 como interessado na obra 123
+        ControladorObra.cadastrarInteressado(123, "12345");
+        
+        ControladorObra.emprestar(123, "12345", 324, "54321");
+        ControladorObra.devolver(123, 324, "54321");
+        
+        ControladorObra.removerInteressado(123, "54321");
+        System.out.println("removeu lucas");
+        ControladorObra.emprestar(123, "12345", 324, "54321");
+        ControladorObra.devolver(123, 324, "54321");
+        
+        ControladorObra.removerInteressado(123, "12345");
+        System.out.println("removeu gabriel");
+        ControladorObra.emprestar(123, "12345", 324, "54321");
+        ControladorObra.devolver(123, 324, "54321");
+        
+        System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
 
     }
 }

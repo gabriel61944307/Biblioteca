@@ -17,6 +17,7 @@ class ObraLiteraria implements IObraLiteraria {
 	private Integer numeroPaginas;
 	private HashMap<Integer, CopiaObraLiteraria> copias = new HashMap<Integer, CopiaObraLiteraria>();
 	private ArrayList<Reserva> reservas = new ArrayList<>();
+	private HashMap<String, Leitor> interessados = new HashMap<String, Leitor>();
 	
 	public ObraLiteraria(Integer codigo, Integer ISBN, String titulo, ICategoriaObraLiteraria categoriaObraLiteraria,
 			String palavrasChave, String dataPublicacao, String nome, String telefone, String cnpj, String email, Integer numeroPaginas) {
@@ -197,6 +198,18 @@ class ObraLiteraria implements IObraLiteraria {
 		
 		Reserva reserva = new Reserva(dataRetirada, funcionario, leitor, this);
 		reserva.realizar();
+	}
+	
+	public void adicionarInteressado(String numeroUfscar) {
+		interessados.put(numeroUfscar, BancoDeDados.getLeitores().get(numeroUfscar));
+	}
+	public void removerInteressado(String numeroUfscar) {
+		interessados.remove(numeroUfscar);
+	}
+	public void notificarInteressados() {
+		for(Leitor i : interessados.values()) {
+				i.notificar(this);
+		}
 	}
 	
 }

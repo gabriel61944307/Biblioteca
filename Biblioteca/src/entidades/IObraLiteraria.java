@@ -12,4 +12,6 @@ public interface IObraLiteraria {
 			String numeroUfscarLeitor);
 	public void devolver(Integer numeroSequencialCopia, String numeroUfscarLeitor);
 	public void reservar(String dataRetirada, String numeroUfscarFuncionario, String numeroUfscarLeitor);
+	public void adicionarInteressado(String numeroUfscar);
+	public void removerInteressado(String numeroUfscar);
 }

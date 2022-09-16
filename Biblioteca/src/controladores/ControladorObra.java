@@ -80,5 +80,14 @@ public class ControladorObra {
 		obra.reservar(dataRetirada, numeroUfscarFuncionario, numeroUfscarLeitor);
 		
     }
+    
+    public static void cadastrarInteressado(Integer codigoObra, String codigoLeitor) {
+		IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigoObra);
+		obra.adicionarInteressado(codigoLeitor);
+    }
+    public static void removerInteressado(Integer codigoObra, String codigoLeitor) {
+    	IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigoObra);
+		obra.removerInteressado(codigoLeitor);
+    }
   
 }
