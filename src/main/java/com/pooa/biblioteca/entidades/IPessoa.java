@@ -8,7 +8,7 @@ public interface IPessoa {
     public void alterar(String nome, String telefone, String dataNasc, Endereco endereco, String email,
                         CategoriaLeitor categoriaLeitor);
     public Integer getCodigo();
-
     public double getMulta();
+    public void setMulta(double multa);
 }
 

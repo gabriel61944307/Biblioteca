@@ -33,8 +33,9 @@ public class BibliotecaApplication {
 		ControladorPessoas.removerFuncionario("54321");
 
 		ControladorPessoas.cadastrarLeitor();
-		ControladorPessoas.alterarLeitor("54321");
-		ControladorPessoas.removerLeitor("12345");
+		ControladorPessoas.alterarLeitor("03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		ControladorPessoas.removerLeitor("ec1c550c-96da-4703-8dd3-3724cbd6a687");
+		ControladorPessoas.gerarPendenciaLeitor("3fa85f64-5717-4562-b3fc-2c963f66afa6");
 
 		// Operações de Categoria Obra
 		ControladorCategoriaObraLiteraria.cadastrarCategoria();
@@ -43,7 +44,7 @@ public class BibliotecaApplication {
 
 		// Operações de Obra
 		ControladorObra.cadastrarObra();
-		ControladorObra.reservar(123, "29/08/2022", "12345", "54321");
+		ControladorObra.reservar(123, "29/08/2022", "12345", "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.imprimirInfo();
 
 		ControladorObra.alterarObra(123);
@@ -52,9 +53,9 @@ public class BibliotecaApplication {
 		ControladorObra.imprimirInfo();
 
 		// Operações de Serviços de Obra
-		ControladorObra.emprestar(123, "12345", 32654, "54321");
+		ControladorObra.emprestar(123, "12345", 32654, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.criarCopia(123, 324);
-		ControladorObra.reservar(123, "30/08/2022", "12345", "54321");
+		ControladorObra.reservar(123, "30/08/2022", "12345", "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.imprimirInfo();
 
 		ControladorObra.criarCopia(123, 15435);
@@ -62,33 +63,33 @@ public class BibliotecaApplication {
 		ControladorObra.addAutor(123, 5);
 		ControladorObra.imprimirInfo();
 
-		ControladorObra.emprestar(123, "12345", 324, "54321");
-		ControladorObra.emprestar(123, "12345", 15435, "54321");
+		ControladorObra.emprestar(123, "12345", 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		ControladorObra.emprestar(123, "12345", 15435, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.imprimirInfo();
 
-		ControladorObra.devolver(123, 324, "54321");
-		ControladorObra.devolver(123, 15435, "54321");
+		ControladorObra.devolver(123, 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		ControladorObra.devolver(123, 15435, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.imprimirInfo();
 
 		System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
 		ControladorPessoas.cadastrarLeitor();
 		//cadastrando leitor 54321 como interessado na obra 123
-		ControladorObra.cadastrarInteressado(123, "54321");
+		ControladorObra.cadastrarInteressado(123, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		//cadastrando leitor 12345 como interessado na obra 123
-		ControladorObra.cadastrarInteressado(123, "12345");
+		ControladorObra.cadastrarInteressado(123, "ec1c550c-96da-4703-8dd3-3724cbd6a687");
 
-		ControladorObra.emprestar(123, "12345", 324, "54321");
-		ControladorObra.devolver(123, 324, "54321");
+		ControladorObra.emprestar(123, "12345", 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		ControladorObra.devolver(123, 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 
-		ControladorObra.removerInteressado(123, "54321");
+		ControladorObra.removerInteressado(123, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		System.out.println("removeu lucas");
-		ControladorObra.emprestar(123, "12345", 324, "54321");
-		ControladorObra.devolver(123, 324, "54321");
+		ControladorObra.emprestar(123, "12345", 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		ControladorObra.devolver(123, 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 
-		ControladorObra.removerInteressado(123, "12345");
+		ControladorObra.removerInteressado(123, "ec1c550c-96da-4703-8dd3-3724cbd6a687");
 		System.out.println("removeu gabriel");
-		ControladorObra.emprestar(123, "12345", 324, "54321");
-		ControladorObra.devolver(123, 324, "54321");
+		ControladorObra.emprestar(123, "12345", 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		ControladorObra.devolver(123, 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 
 		System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
 

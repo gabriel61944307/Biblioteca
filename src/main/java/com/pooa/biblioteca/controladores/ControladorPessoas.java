@@ -124,12 +124,14 @@ public class ControladorPessoas {
 
         // TESTE CADASTRO ALTERACAO E REMOCAO DE LEITOR
 
-        IPessoa leitor1 = fabricaLeitor.criar("gabriel", "111", "10/10/2010", "1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil", "12345", "gabriel@gmail.com", BancoDeDados.getCategoriasLeitor().get(2));
-        IPessoa leitor2 = fabricaLeitor.criar("lucas", "222", "11/11/2011", "1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil", "54321", "lucas@gmail.com", BancoDeDados.getCategoriasLeitor().get(2));
+        IPessoa leitor1 = fabricaLeitor.criar("gabriel", "111", "10/10/2010", "1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil", "ec1c550c-96da-4703-8dd3-3724cbd6a687", "gabriel@gmail.com", BancoDeDados.getCategoriasLeitor().get(2));
+        IPessoa leitor2 = fabricaLeitor.criar("lucas", "222", "11/11/2011", "1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil", "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7", "lucas@gmail.com", BancoDeDados.getCategoriasLeitor().get(2));
+        IPessoa leitor3 = fabricaLeitor.criar("leonardo", "222", "11/11/2011", "1", "casa", "45", "padaria", "monjolinho", "Sao Carlos", "Sao Paulo", "SP", "Brasil", "3fa85f64-5717-4562-b3fc-2c963f66afa6", "lucas@gmail.com", BancoDeDados.getCategoriasLeitor().get(2));
 
 
         leitor1.cadastrar();
         leitor2.cadastrar();
+        leitor3.cadastrar();
 
         imprimirInfoLeitor();
 
@@ -159,8 +161,20 @@ public class ControladorPessoas {
 
     }
 
+    public static void gerarPendenciaLeitor(String numeroUfscar) {
+
+        IPessoa leitor = BancoDeDados.getLeitores().get(numeroUfscar);
+
+        leitor.setMulta(5);
+
+        System.out.println(leitor.getMulta());
+
+    }
+
     public boolean verificarPendencia(String numeroUfscar) {
         IPessoa leitor = BancoDeDados.getLeitores().get(numeroUfscar);
+
+        System.out.println(leitor.getMulta());
 
         if (leitor.getMulta() > 0) {
             //leitor possui pendencia

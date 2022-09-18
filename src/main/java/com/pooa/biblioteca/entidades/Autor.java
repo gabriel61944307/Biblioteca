@@ -19,6 +19,10 @@ class Autor extends Pessoa{
         return 0;
     }
 
+    public void setMulta(double multa) {
+
+    }
+
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }

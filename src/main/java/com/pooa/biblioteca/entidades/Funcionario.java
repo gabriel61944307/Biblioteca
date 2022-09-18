@@ -67,4 +67,8 @@ class Funcionario extends Pessoa{
         return 0;
     }
 
+    public void setMulta(double multa) {
+
+    }
+
 }

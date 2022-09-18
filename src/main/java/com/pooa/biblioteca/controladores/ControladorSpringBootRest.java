@@ -13,7 +13,7 @@ import java.util.*;
 
 @RestController
 public class ControladorSpringBootRest {
-
+/*
     @GetMapping(value = "/grupo-academico-membros")
     public List<Object> getGrupoAcademicoMembros(){
     //Lista pessoas no grupo academico
@@ -35,7 +35,7 @@ public class ControladorSpringBootRest {
 
         return Arrays.asList(response.getBody());
     }
-
+*/
     @GetMapping(value = "/leitor-grupo-academico")
     public List<Object> getLeitorGrupoAcademico(){
         String id1 = "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7"; //ID do leitor
@@ -55,7 +55,7 @@ public class ControladorSpringBootRest {
 
         return Arrays.asList(response.getBody());
     }
-
+/*
     @RequestMapping(value = "/auth",
             method = RequestMethod.POST)
     public String token(@RequestBody Map<String, String> login){
@@ -79,5 +79,5 @@ public class ControladorSpringBootRest {
         String bearer = response.getBody().toString();
         return bearer;
     }
-
+*/
 }
