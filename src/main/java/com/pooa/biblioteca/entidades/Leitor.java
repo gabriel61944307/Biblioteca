@@ -48,6 +48,10 @@ class Leitor extends Pessoa{
         return multa;
     }
 
+    public void setMulta(double multa) {
+        this.multa = multa;
+    }
+
     @Override
     public void cadastrar() {
         System.out.println("Cadastrando leitor");
