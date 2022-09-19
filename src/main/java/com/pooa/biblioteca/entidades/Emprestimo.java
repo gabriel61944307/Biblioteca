@@ -1,5 +1,7 @@
 package com.pooa.biblioteca.entidades;
 
+import com.pooa.biblioteca.controladores.ControladorSpringBootRest;
+
 import java.time.LocalDate;
 
 class Emprestimo {
@@ -52,9 +54,13 @@ class Emprestimo {
     public void realizar() {
         //O empr�stimo s� pode ser feito se o requisitante estiver inscrito em pelo menos uma disciplina
         //e tiver participado pelo menos de um grupo acad�mico no passado, mesmo que o grupo j� esteja desativado.
-        this.copiaEmprestada.getEstado().emprestarObra(this.copiaEmprestada);
-        this.leitor.getEmprestimos().add(this);
-        this.leitor.getEmprestimosAtivos().add(this);
+        if (ControladorSpringBootRest.verificarGrupoAcademico(this.leitor.getNumeroUfscar())) {
+            this.copiaEmprestada.getEstado().emprestarObra(this.copiaEmprestada);
+            this.leitor.getEmprestimos().add(this);
+            this.leitor.getEmprestimosAtivos().add(this);
+        } else {
+            System.out.println("Leitor: " + this.leitor.getNumeroUfscar() + " nunca foi inscrito em um Grupo Acadêmico");
+        }
     }
 
     static LocalDate calcularDataDevolucao(ObraLiteraria obraEmprestada, Leitor leitor) {

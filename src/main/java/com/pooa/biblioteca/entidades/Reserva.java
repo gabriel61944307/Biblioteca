@@ -1,5 +1,7 @@
 package com.pooa.biblioteca.entidades;
 
+import com.pooa.biblioteca.controladores.ControladorSpringBootRest;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -81,8 +83,13 @@ class Reserva {
 
 
         if(reservaMesmoPeriodo < this.obra.getCopias().size()) {
-            obra.addReserva(this);
-            System.out.println("Reserva concluida.");
+            if (ControladorSpringBootRest.verificarGrupoAcademicoAtivo(this.leitor.getNumeroUfscar())) {
+                obra.addReserva(this);
+                System.out.println("Reserva concluida.");
+            } else {
+                System.out.println("Reserva não concluida, pois Leitor não está inscrito em Grupo Acadêmico.");
+            }
+
         }
         else {
             System.out.println("Nao ha obras suficientes para reservar neste periodo.");
