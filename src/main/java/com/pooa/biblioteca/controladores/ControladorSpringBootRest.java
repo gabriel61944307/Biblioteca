@@ -43,7 +43,7 @@ public class ControladorSpringBootRest {
         String id3 = "ec1c550c-96da-4703-8dd3-3724cbd6a687"; //ID do leitor sem grupo academico
         String url = "https://pooa-grupos-academicos.herokuapp.com/user/"+ id1 + "/academicGroup";
         RestTemplate restTemplate = new RestTemplate();
-        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3NTNkNGYwYy1kYWZmLTQwNDgtOWJkOS1kMWRhNTEzMWVjYzUiLCJpYXQiOjE2NjM1NDA0NTAsImV4cCI6MTY2MzU0NDA1MH0.K7bBbnhCNDzBheJDt1lOcGjjORAn2lZu829YBy7GhEOzLNg_uAbnIE748iuUbPjcQhSmJQpAV5qVSthKPd22Uw0irtkPhk0VcwrKAAhVZu5l4hYRajimEEkrHlbUxSxDsf2C2t4o-Qx4kBg7CUnHNPDQ-dqhhXQFvkfZA-27uOA";
+        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3NTNkNGYwYy1kYWZmLTQwNDgtOWJkOS1kMWRhNTEzMWVjYzUiLCJpYXQiOjE2NjM1OTgyODIsImV4cCI6MTY2MzYwMTg4Mn0.lIQiKl61tPU_-lMt8fwckTWxm3sGbNxCK-5d_EHfsrllRpsOEt0vTY8zwFbUSOEOUc8OPrbA5BsKZK_Dgy6ZpA5E5Lm7-udNBMje86H6bf-5YL80HUe1rkdwpIbgIm5d_YkXHmQZ03HCs8RyK8psuQ1Is8k0lBw6jZKWL-F6uGs";
 
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
         headers.add("Authorization", accessToken);
