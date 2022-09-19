@@ -161,16 +161,6 @@ public class ControladorPessoas {
 
     }
 
-    public static void gerarPendenciaLeitor(String numeroUfscar) {
-
-        IPessoa leitor = BancoDeDados.getLeitores().get(numeroUfscar);
-
-        leitor.setMulta(5);
-
-        System.out.println(leitor.getMulta());
-
-    }
-
     public boolean verificarPendencia(String numeroUfscar) {
         IPessoa leitor = BancoDeDados.getLeitores().get(numeroUfscar);
 

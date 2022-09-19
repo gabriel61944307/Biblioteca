@@ -9,6 +9,5 @@ public interface IPessoa {
                         CategoriaLeitor categoriaLeitor);
     public Integer getCodigo();
     public double getMulta();
-    public void setMulta(double multa);
 }
 

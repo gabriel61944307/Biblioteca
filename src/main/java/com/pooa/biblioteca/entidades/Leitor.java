@@ -18,6 +18,9 @@ class Leitor extends Pessoa{
         this.numeroUfscar = numeroUfscar;
         this.email = email;
         this.categoriaLeitor = categoriaLeitor;
+        if (numeroUfscar.equals("3fa85f64-5717-4562-b3fc-2c963f66afa6")) {
+            this.multa = 5.0;
+        }
     }
 
     public String getNumeroUfscar() {
@@ -43,9 +46,6 @@ class Leitor extends Pessoa{
 
     public double getMulta() {
         return multa;
-    }
-    public void setMulta(double multa) {
-        this.multa = multa;
     }
 
     @Override

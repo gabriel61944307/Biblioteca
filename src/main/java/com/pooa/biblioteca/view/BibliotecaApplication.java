@@ -35,7 +35,6 @@ public class BibliotecaApplication {
 		ControladorPessoas.cadastrarLeitor();
 		ControladorPessoas.alterarLeitor("03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorPessoas.removerLeitor("ec1c550c-96da-4703-8dd3-3724cbd6a687");
-		ControladorPessoas.gerarPendenciaLeitor("3fa85f64-5717-4562-b3fc-2c963f66afa6");
 
 		// Operações de Categoria Obra
 		ControladorCategoriaObraLiteraria.cadastrarCategoria();
