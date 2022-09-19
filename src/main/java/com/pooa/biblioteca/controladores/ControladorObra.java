@@ -3,6 +3,16 @@ package com.pooa.biblioteca.controladores;
 import com.pooa.biblioteca.entidades.BancoDeDados;
 import com.pooa.biblioteca.entidades.FabricaObraLiteraria;
 import com.pooa.biblioteca.entidades.IObraLiteraria;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
+import java.util.Arrays;
+import java.util.List;
 
 public class ControladorObra {
     public static void cadastrarObra() {
@@ -58,10 +68,13 @@ public class ControladorObra {
     }
 
     public static void emprestar(int codigo, String numeroUfscarFuncionario, Integer numeroSequencialCopia, String numeroUfscarLeitor) {
+        if (verificarGrupoAcademico(numeroUfscarLeitor)) {
+            IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 
-        IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
-
-        obra.emprestar(numeroUfscarFuncionario, numeroSequencialCopia, numeroUfscarLeitor);
+            obra.emprestar(numeroUfscarFuncionario, numeroSequencialCopia, numeroUfscarLeitor);
+        } else {
+            System.out.println("Leitor não possui os requisitos para fazer uma reserva");
+        }
 
     }
 
@@ -75,9 +88,13 @@ public class ControladorObra {
 
     public static void reservar(int codigo, String dataRetirada, String numeroUfscarFuncionario, String numeroUfscarLeitor) {
 
-        IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
+        if (verificarGrupoAcademicoAtivo(numeroUfscarLeitor)) {
+            IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 
-        obra.reservar(dataRetirada, numeroUfscarFuncionario, numeroUfscarLeitor);
+            obra.reservar(dataRetirada, numeroUfscarFuncionario, numeroUfscarLeitor);
+        } else {
+            System.out.println("Leitor não possui os requisitos para fazer uma reserva");
+        }
 
     }
 
@@ -88,6 +105,70 @@ public class ControladorObra {
     public static void removerInteressado(Integer codigoObra, String codigoLeitor) {
         IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigoObra);
         obra.removerInteressado(codigoLeitor);
+    }
+
+    public static boolean verificarGrupoAcademico(String numeroUfscarLeitor){
+        /*String id1 = "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7"; //ID do leitor
+        String id2 = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; //ID do leitor
+        String id3 = "ec1c550c-96da-4703-8dd3-3724cbd6a687"; //ID do leitor sem grupo academico*/
+        String url = "https://pooa-grupos-academicos.herokuapp.com/user/"+ numeroUfscarLeitor + "/academicGroup";
+        RestTemplate restTemplate = new RestTemplate();
+        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3NTNkNGYwYy1kYWZmLTQwNDgtOWJkOS1kMWRhNTEzMWVjYzUiLCJpYXQiOjE2NjM2MzEwMzUsImV4cCI6MTY2MzYzNDYzNX0.QVHT1uMVZDakSRnR_sy1weYYA6PCKzBMutgW-N7aZMZlzlHDZRzm-49cLX7a1FlMdp0csJpRYOrKJJfpUNcqUYdiGAQlO4f18KOUF3FHORAotNxg771rJ3WB0LaDdxO19DymvPN3uOe8FAPqHZuuZ0R_tMst-eYgCqDKPJabpoE";
+
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+        headers.add("Authorization", accessToken);
+
+        RequestEntity<Object> request = new RequestEntity<>(
+                headers, HttpMethod.GET, URI.create(url));
+
+        ResponseEntity<Object[]> response = restTemplate.exchange(request, Object[].class);
+
+        if (response.toString().contains("Content-Length:\"2\"")) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean verificarGrupoAcademicoAtivo(String numeroUfscarLeitor){
+        String url = "https://pooa-grupos-academicos.herokuapp.com/user/"+ numeroUfscarLeitor + "/academicGroup";
+        RestTemplate restTemplate = new RestTemplate();
+        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3NTNkNGYwYy1kYWZmLTQwNDgtOWJkOS1kMWRhNTEzMWVjYzUiLCJpYXQiOjE2NjM2MzEwMzUsImV4cCI6MTY2MzYzNDYzNX0.QVHT1uMVZDakSRnR_sy1weYYA6PCKzBMutgW-N7aZMZlzlHDZRzm-49cLX7a1FlMdp0csJpRYOrKJJfpUNcqUYdiGAQlO4f18KOUF3FHORAotNxg771rJ3WB0LaDdxO19DymvPN3uOe8FAPqHZuuZ0R_tMst-eYgCqDKPJabpoE";
+
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+        headers.add("Authorization", accessToken);
+
+        RequestEntity<Object> request = new RequestEntity<>(
+                headers, HttpMethod.GET, URI.create(url));
+
+        ResponseEntity<Object[]> response = restTemplate.exchange(request, Object[].class);
+
+        List<Object> res = Arrays.asList(response.getBody());
+
+        if (res.toString().contains("status=active"))
+            return true;
+
+        return false;
+    }
+
+    public static boolean verificarDisciplinas(String numeroUfscarLeitor){
+        String url = "https://inscricaodisciplinas.herokuapp.com/aluno/"+ numeroUfscarLeitor + "/disciplinas";
+        RestTemplate restTemplate = new RestTemplate();
+
+        RequestEntity<Object> request = new RequestEntity<>(
+                HttpMethod.GET, URI.create(url));
+
+        ResponseEntity<Object[]> response = restTemplate.exchange(request, Object[].class);
+
+        System.out.println(response.toString());
+/*
+        if (response.toString().contains("0")) {
+            return false;
+        } else {
+
+        }
+*/
+        return true;
     }
 
 }

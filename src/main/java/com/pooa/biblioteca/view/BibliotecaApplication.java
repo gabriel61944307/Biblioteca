@@ -1,9 +1,6 @@
 package com.pooa.biblioteca.view;
 
-import com.pooa.biblioteca.controladores.ControladorCategoriaLeitor;
-import com.pooa.biblioteca.controladores.ControladorCategoriaObraLiteraria;
-import com.pooa.biblioteca.controladores.ControladorObra;
-import com.pooa.biblioteca.controladores.ControladorPessoas;
+import com.pooa.biblioteca.controladores.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -92,6 +89,7 @@ public class BibliotecaApplication {
 
 		System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
 
+		//ControladorObra.verificarDisciplinas("03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 	}
 
 }
