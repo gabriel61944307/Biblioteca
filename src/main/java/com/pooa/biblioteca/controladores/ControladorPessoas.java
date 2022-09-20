@@ -161,7 +161,7 @@ public class ControladorPessoas {
 
     }
 
-    public boolean verificarPendencia(String numeroUfscar) {
+    public static boolean verificarPendencia(String numeroUfscar) {
         IPessoa leitor = BancoDeDados.getLeitores().get(numeroUfscar);
 
         System.out.println(leitor.getMulta());
@@ -175,7 +175,7 @@ public class ControladorPessoas {
     }
 
     @GetMapping("/pendencias/{id}")
-    public ResponseEntity<Boolean> verificarPendenciaResponse(@PathVariable("id") String numeroUfscar) {
+    public static ResponseEntity<Boolean> verificarPendenciaResponse(@PathVariable("id") String numeroUfscar) {
         boolean pendencia = verificarPendencia(numeroUfscar);
         System.out.printf(String.valueOf(pendencia));
         return new ResponseEntity<>(pendencia, HttpStatus.OK);
