@@ -117,7 +117,7 @@ public class ControladorObra {
         String id3 = "ec1c550c-96da-4703-8dd3-3724cbd6a687"; //ID do leitor sem grupo academico*/
         String url = "https://pooa-grupos-academicos.herokuapp.com/user/"+ numeroUfscarLeitor + "/academicGroup";
         RestTemplate restTemplate = new RestTemplate();
-        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTYiLCJpYXQiOjE2NjM2NzY1NzQsImV4cCI6MTY2MzY4MDE3NH0.F-pBliPlDDz0OE-xpHj22UuOsgcPX3UHeATIwZ3JfcO8z2rTPPZrgtMAujkWnXlwQsGteDNwPKFj_KWwuPBqG0TGeL2yvgHlQyd9uClUMUseajtHmw-JvyiVc0f3xY9wPOAoJLroBLgUqZbUSVpO8mgD1NoimSC6AWCN00DoAD0";
+        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTYiLCJpYXQiOjE2NjM2ODE3MDYsImV4cCI6MTY2MzY4NTMwNn0.S-7_rQsJYFBB81IB-0OmQHLgSe5uT4iQIAY22GrFq-XE71ho4frKaU9pc0IRuF4VumfYhngtTApvJbBm2l97xTJaXDAefmmxE26WTb2bQS8fv6cA1YtL2fTSdbY99AkkytnCWft74ujrIknvj0OJIElQLvKTT0HQE6u5eBiVj0w";
 
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
         headers.add("Authorization", accessToken);
@@ -137,7 +137,7 @@ public class ControladorObra {
     public static boolean verificarGrupoAcademicoAtivo(String numeroUfscarLeitor){
         String url = "https://pooa-grupos-academicos.herokuapp.com/user/"+ numeroUfscarLeitor + "/academicGroup";
         RestTemplate restTemplate = new RestTemplate();
-        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTYiLCJpYXQiOjE2NjM2NzY1NzQsImV4cCI6MTY2MzY4MDE3NH0.F-pBliPlDDz0OE-xpHj22UuOsgcPX3UHeATIwZ3JfcO8z2rTPPZrgtMAujkWnXlwQsGteDNwPKFj_KWwuPBqG0TGeL2yvgHlQyd9uClUMUseajtHmw-JvyiVc0f3xY9wPOAoJLroBLgUqZbUSVpO8mgD1NoimSC6AWCN00DoAD0";
+        String accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTYiLCJpYXQiOjE2NjM2ODE3MDYsImV4cCI6MTY2MzY4NTMwNn0.S-7_rQsJYFBB81IB-0OmQHLgSe5uT4iQIAY22GrFq-XE71ho4frKaU9pc0IRuF4VumfYhngtTApvJbBm2l97xTJaXDAefmmxE26WTb2bQS8fv6cA1YtL2fTSdbY99AkkytnCWft74ujrIknvj0OJIElQLvKTT0HQE6u5eBiVj0w";
 
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
         headers.add("Authorization", accessToken);
