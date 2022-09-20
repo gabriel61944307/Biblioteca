@@ -128,10 +128,10 @@ class Leitor extends Pessoa{
         this.emprestimosAtivos = emprestimosAtivos;
     }
     public void notificar(ObraLiteraria obraLiteraria) {
-        System.out.println("---------------------------");
+        System.out.println("*****************");
         System.out.println("Email para: " + this.email);
         System.out.println("O livro " + obraLiteraria.getTitulo() + " se encontra dispon�vel para emprestimo.");
         System.out.println("Cordialmente, sistema biblioteca UFSCar.");
-        System.out.println("---------------------------");
+        System.out.println("*****************");
     }
 }

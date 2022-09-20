@@ -151,11 +151,11 @@ class ObraLiteraria implements IObraLiteraria {
         this.categoriaObraLiteraria.imprimirInfo();
         //LISTA AUTORES
         System.out.println("AUTORES: ");
-        System.out.println("****************************");
+        System.out.println("*****************");
         for(IPessoa i : this.autores.values()) {
             i.imprimirInfo();
         }
-        System.out.println("****************************");
+        System.out.println("*****************");
         //
         System.out.println("PALAVRAS CHAVE: " + this.palavrasChave);
         System.out.println("DATA PUBLICACAO: " + this.dataPublicacao);
@@ -163,11 +163,11 @@ class ObraLiteraria implements IObraLiteraria {
         System.out.println("NUMERO DE PAGINAS: " + this.numeroPaginas);
         //LISTA COPIAS
         System.out.println("COPIAS: ");
-        System.out.println("****************************");
+        System.out.println("*****************");
         for(CopiaObraLiteraria i : this.copias.values()) {
             System.out.println(i.getNumeroSequencial() + " " + i.getEstado().getNome());
         }
-        System.out.println("****************************");
+        System.out.println("*****************");
         //LISTA RESERVAS
     }
 
