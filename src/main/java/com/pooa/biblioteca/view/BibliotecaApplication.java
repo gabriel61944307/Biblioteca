@@ -67,7 +67,7 @@ public class BibliotecaApplication {
 		ControladorObra.devolver(123, 15435, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.imprimirInfo();
 
-		System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
+		System.out.println("TESTE OBSERVER");
 		ControladorPessoas.cadastrarLeitor();
 		//cadastrando leitor 54321 como interessado na obra 123
 		ControladorObra.cadastrarInteressado(123, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
@@ -87,9 +87,10 @@ public class BibliotecaApplication {
 		ControladorObra.emprestar(123, "12345", 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 		ControladorObra.devolver(123, 324, "03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
 
-		System.out.println("TESTE OBSERVER AQUIIIIIIIIIIIIIIIII");
-
-		//ControladorObra.verificarDisciplinas("03dec7a5-9b4e-4d73-a87f-c00ff03d71b7");
+		System.out.println("TESTE NEGATIVO RESERVA");
+		ControladorObra.emprestar(123, "12345", 32654, "ec1c550c-96da-4703-8dd3-3724cbd6a687");
+		ControladorObra.criarCopia(123, 3244);
+		ControladorObra.reservar(123, "30/08/2022", "12345", "ec1c550c-96da-4703-8dd3-3724cbd6a687");
 	}
 
 }

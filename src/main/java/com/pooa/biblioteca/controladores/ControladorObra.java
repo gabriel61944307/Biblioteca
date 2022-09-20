@@ -8,12 +8,14 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
+@RestController
 public class ControladorObra {
     public static void cadastrarObra() {
         FabricaObraLiteraria fabricaObraLiteraria = new FabricaObraLiteraria();
@@ -68,12 +70,13 @@ public class ControladorObra {
     }
 
     public static void emprestar(int codigo, String numeroUfscarFuncionario, Integer numeroSequencialCopia, String numeroUfscarLeitor) {
-        if (verificarGrupoAcademico(numeroUfscarLeitor)) {
+        if (verificarGrupoAcademico(numeroUfscarLeitor) && verificarDisciplinas(numeroUfscarLeitor)) {
             IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 
             obra.emprestar(numeroUfscarFuncionario, numeroSequencialCopia, numeroUfscarLeitor);
+            System.out.println("Empréstimo realizado com sucesso");
         } else {
-            System.out.println("Leitor não possui os requisitos para fazer uma reserva");
+            System.out.println("Leitor não possui os requisitos para fazer um empréstimo");
         }
 
     }
@@ -88,10 +91,11 @@ public class ControladorObra {
 
     public static void reservar(int codigo, String dataRetirada, String numeroUfscarFuncionario, String numeroUfscarLeitor) {
 
-        if (verificarGrupoAcademicoAtivo(numeroUfscarLeitor)) {
+        if (verificarGrupoAcademicoAtivo(numeroUfscarLeitor) && verificarDisciplinas(numeroUfscarLeitor)) {
             IObraLiteraria obra = BancoDeDados.getObrasLiterarias().get(codigo);
 
             obra.reservar(dataRetirada, numeroUfscarFuncionario, numeroUfscarLeitor);
+            System.out.println("Reserva realizada com sucesso");
         } else {
             System.out.println("Leitor não possui os requisitos para fazer uma reserva");
         }
@@ -155,20 +159,16 @@ public class ControladorObra {
         String url = "https://inscricaodisciplinas.herokuapp.com/aluno/"+ numeroUfscarLeitor + "/disciplinas";
         RestTemplate restTemplate = new RestTemplate();
 
-        RequestEntity<Object> request = new RequestEntity<>(
+        RequestEntity<Integer> request = new RequestEntity<>(
                 HttpMethod.GET, URI.create(url));
 
-        ResponseEntity<Object[]> response = restTemplate.exchange(request, Object[].class);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-        System.out.println(response.toString());
-/*
-        if (response.toString().contains("0")) {
+        if (response.getBody().contains("0")) {
             return false;
         } else {
-
+            return true;
         }
-*/
-        return true;
     }
 
 }
