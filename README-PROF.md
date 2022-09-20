@@ -40,7 +40,7 @@ mvn spring-boot:run
 
 - Para testar a integração com Grupos Acadêmicos, é necessário fazer chamada REST de login para gerar o código de autenticação pelo link link https://pooa-grupos-academicos.herokuapp.com/docs/ e alterá-lo no código, nos métodos `verificarGrupoAcademico()` e `verificarGrupoAcademicoAtivo()` da classe `ControladorObra`. 
 Além disso, é necessário passar um id pelo link https://pooa-grupos-academicos.herokuapp.com/user/{id}/academicGroup, sendo o ID o `numeroUfscar` de um leitor. Atualmente é possível fazer a chamada com os IDs:
-  - 03dec7a5-9b4e-4d73-a87f-c00ff03d71b7 - Leitor sem participação em grupos acadêmicos
+  - 03dec7a5-9b4e-4d73-a87f-c00ff03d71b7 - Leitor com participação em grupos acadêmicos
   - 3fa85f64-5717-4562-b3fc-2c963f66afa6 - Leitor com participação em grupos acadêmicos
   - ec1c550c-96da-4703-8dd3-3724cbd6a687 - Leitor sem participação em grupos acadêmicos
 
