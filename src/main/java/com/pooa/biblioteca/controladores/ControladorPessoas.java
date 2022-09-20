@@ -176,6 +176,7 @@ public class ControladorPessoas {
 
     @GetMapping("/pendencias/{id}")
     public static ResponseEntity<Boolean> verificarPendenciaResponse(@PathVariable("id") String numeroUfscar) {
+        // Pessoa com pendencia = 3fa85f64-5717-4562-b3fc-2c963f66afa6
         boolean pendencia = verificarPendencia(numeroUfscar);
         System.out.printf(String.valueOf(pendencia));
         return new ResponseEntity<>(pendencia, HttpStatus.OK);
